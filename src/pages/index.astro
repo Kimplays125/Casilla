@@ -1,0 +1,279 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Casilla 13 | Alianza familia-escuela">
+  <Fragment slot="head">
+    <style>
+      :root{--green:#235347;--mint:#dff2e8;--cream:#fffaf0;--gold:#f3bd55;--ink:#20342e;--muted:#64756e;--coral:#e98570;--white:#fff}
+      *{box-sizing:border-box} body{margin:0;font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;background:linear-gradient(135deg,#e7f3e9,#fff5df);color:var(--ink);min-height:100vh}
+      button{font:inherit;cursor:pointer}.shell{width:min(920px,92%);margin:28px auto 40px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;color:var(--green);font-weight:800}.pill{background:#ffffffb8;border:1px solid #cfe2d5;border-radius:99px;padding:8px 13px;font-size:.85rem}
+      .card{background:var(--white);border:1px solid #e5eadf;border-radius:28px;padding:clamp(22px,5vw,48px);box-shadow:0 18px 55px #244b3715}
+      .hero{text-align:center;background:radial-gradient(circle at 15% 15%,#fff4d5,transparent 35%),linear-gradient(145deg,#fff,#f1faf3)}
+      .illustration{font-size:clamp(4rem,10vw,7rem);line-height:1.2;margin:8px 0 14px;filter:drop-shadow(0 8px 5px #00000010)}
+      h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.05;color:var(--green);margin:10px 0}
+      h2{color:var(--green);font-size:clamp(1.35rem,3vw,2rem);margin:8px 0 12px}
+      p{line-height:1.65;color:var(--muted)}.subtitle{font-size:1.1rem;max-width:650px;margin:12px auto 24px}
+      .btn{border:0;border-radius:14px;padding:13px 22px;font-weight:800;background:var(--green);color:white;box-shadow:0 5px 0 #153c32;transition:.15s}
+      .btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 #153c32}.btn:active{transform:translateY(2px);box-shadow:0 2px 0 #153c32}
+      .btn.secondary{background:#e8f3eb;color:var(--green);box-shadow:none;border:1px solid #c9dfd0}
+      .rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:24px 0}.rule{background:#f4f8f2;border-radius:16px;padding:15px;text-align:left}.rule b{display:block;color:var(--green);margin-bottom:5px}
+      .progressrow{display:flex;justify-content:space-between;gap:12px;font-size:.9rem;color:var(--muted);font-weight:700;margin:0 0 9px}.track{height:10px;background:#e8eee8;border-radius:20px;overflow:hidden;margin-bottom:25px}.bar{height:100%;background:linear-gradient(90deg,#65aa82,#e9bd5c);width:0;transition:width .3s}
+      .questiontop{display:flex;align-items:center;gap:12px;margin-bottom:15px}.number{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:#493719;font-weight:900;flex-shrink:0}.tag{font-size:.8rem;font-weight:800;color:#8a6a2e;background:#fff3d6;border-radius:99px;padding:7px 11px}
+      .question{font-size:clamp(1.25rem,3vw,1.7rem);line-height:1.35;color:var(--ink);margin:10px 0 22px}
+      .options{display:grid;gap:12px}.option{width:100%;text-align:left;border:2px solid #e4ebe4;background:#fbfdf9;padding:15px 17px;border-radius:16px;color:var(--ink);font-weight:650;display:flex;gap:12px;align-items:center;transition:.15s}.option:hover:not(:disabled){border-color:#8eb99b;background:#f1f8f1}.letter{width:30px;height:30px;border-radius:10px;background:#e8f1e9;color:var(--green);display:grid;place-items:center;font-weight:900;flex-shrink:0}.option.correct{border-color:#4a9b6b;background:#eaf7ee}.option.wrong{border-color:#dc8877;background:#fff0ec}.option:disabled{cursor:default}
+      .feedback{margin-top:18px;padding:15px 17px;border-radius:16px;line-height:1.55;display:none}.feedback.show{display:block}.feedback.good{background:#eaf7ee;color:#245d3b}.feedback.bad{background:#fff1ed;color:#8b4335}
+      .actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:22px;flex-wrap:wrap}.small{font-size:.85rem;color:var(--muted)}
+      .scorecircle{width:140px;height:140px;border-radius:50%;background:var(--mint);display:grid;place-items:center;margin:20px auto;color:var(--green);font-size:2.4rem;font-weight:900;border:8px solid #c3e3cf}
+      .result{text-align:center}.result .big{font-size:3.5rem}.summary{background:#f4f8f2;border-radius:18px;padding:18px;text-align:left;margin:20px 0}.summary div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #e1e9e0}.summary div:last-child{border:0}
+      footer{text-align:center;font-size:.82rem;color:#74847b;margin:18px auto;max-width:700px}
+      @media(max-width:560px){.shell{margin:14px auto 24px}.top{font-size:.85rem}.card{border-radius:22px}.actions .btn{flex:1}.actions{align-items:stretch}}
+    </style>
+  </Fragment>
+
+  <main class="shell">
+    <div class="top"><span>🌱 AVENTURA EDUCATIVA</span><span class="pill">CASILLA 13</span></div>
+
+    <!-- Pantalla de inicio -->
+    <section class="card hero" id="intro">
+      <div class="illustration">🏡 🤝 🌳</div>
+      <div class="pill">Juego interactivo · Primera infancia</div>
+      <h1>Casilla 13</h1>
+      <h2>Alianza familia-escuela</h2>
+      <p class="subtitle">¡La aventura de crecer juntos! Supera 10 retos y descubre cómo la familia y la escuela, trabajando en equipo, favorecen el bienestar, el aprendizaje y el desarrollo integral de niñas y niños.</p>
+      <div class="rules">
+        <div class="rule"><b>🎯 Tu misión</b>Responder 5 preguntas sobre la alianza familia-escuela.</div>
+        <div class="rule"><b>⭐ Tu reto</b>Elige una respuesta por pregunta y descubre si acertaste.</div>
+        <div class="rule"><b>🌳 Tu recompensa</b>Completa el recorrido y consigue tu resultado final.</div>
+      </div>
+      <button class="btn" id="startBtn">Comenzar aventura →</button>
+    </section>
+
+    <!-- Pantalla de juego -->
+    <section class="card" id="game" hidden>
+      <div class="progressrow">
+        <span id="progressText">Pregunta 1 de 5</span>
+        <span id="scoreText">⭐ 0 puntos</span>
+      </div>
+      <div class="track"><div class="bar" id="progressBar"></div></div>
+      <div class="questiontop">
+        <div class="number" id="qNumber">1</div>
+        <span class="tag" id="qTag">Trabajo en equipo</span>
+      </div>
+      <div class="question" id="questionText"></div>
+      <div class="options" id="options"></div>
+      <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+      <div class="actions">
+        <span class="small" id="hint">Selecciona la respuesta que consideres correcta.</span>
+        <button class="btn" id="nextBtn" hidden>Siguiente reto →</button>
+      </div>
+    </section>
+
+    <!-- Pantalla de resultado -->
+    <section class="card result" id="result" hidden>
+      <div class="big" id="resultEmoji">🌳</div>
+      <h1>¡Aventura completada!</h1>
+      <p>Has recorrido la Casilla 13 y explorado por qué es importante construir puentes entre la familia y la escuela.</p>
+      <div class="scorecircle"><span id="finalScore">0/5</span></div>
+      <h2 id="resultTitle">¡Buen trabajo!</h2>
+      <p id="resultMessage"></p>
+      <div class="summary">
+        <div><span>Respuestas correctas</span><b id="correctCount">0</b></div>
+        <div><span>Respuestas por revisar</span><b id="wrongCount">0</b></div>
+        <div><span>Porcentaje de logro</span><b id="percentage">0%</b></div>
+      </div>
+      <p><b>Recuerda:</b> cuando familia y escuela dialogan, participan y comparten responsabilidades, crean mejores oportunidades para el desarrollo integral de la niñez.</p>
+      <button class="btn" id="restartBtn">Volver a jugar ↻</button>
+    </section>
+
+    <footer>Recurso educativo: Casilla 13 – Alianza familia-escuela. Basado en las orientaciones del Ministerio de Educación Nacional de Colombia.</footer>
+  </main>
+
+  <script>
+    const questions = [
+      {
+        tag: "Propósito de la alianza",
+        q: "¿Cuál es el propósito principal de la alianza entre la familia y la escuela durante la primera infancia?",
+        a: [
+          "Dejar toda la responsabilidad educativa a la institución.",
+          "Trabajar conjuntamente para favorecer el desarrollo integral y el aprendizaje de niñas y niños.",
+          "Reunirse únicamente cuando aparece un problema de comportamiento.",
+          "Hacer que la familia repita en casa todas las actividades del aula."
+        ],
+        c: 1,
+        why: "La alianza busca unir esfuerzos, saberes y responsabilidades para promover el desarrollo integral y el aprendizaje."
+      },
+      {
+        tag: "Comunicación y confianza",
+        q: "¿Qué acción fortalece la comunicación entre la familia y la escuela?",
+        a: [
+          "Enviar instrucciones sin escuchar a la familia.",
+          "Evitar el diálogo para no generar diferencias.",
+          "Abrir espacios de escucha y diálogo respetuoso para construir estrategias conjuntas.",
+          "Comunicarse solo cuando termina el año escolar."
+        ],
+        c: 2,
+        why: "La comunicación de doble vía permite compartir información, comprender realidades y construir estrategias conjuntas en beneficio de niñas y niños."
+      },
+      {
+        tag: "Vínculos afectivos",
+        q: "¿Qué aporta el acompañamiento afectivo de la familia y los docentes a los niños pequeños?",
+        a: [
+          "Seguridad emocional, confianza y fortalecimiento de la autoestima.",
+          "Que todos los niños aprendan al mismo ritmo.",
+          "Que los niños no necesiten relacionarse con otras personas.",
+          "Que desaparezcan todas las dificultades de aprendizaje."
+        ],
+        c: 0,
+        why: "Los vínculos afectivos seguros favorecen la confianza, la autoestima y la disposición para explorar y aprender."
+      },
+      {
+        tag: "Corresponsabilidad",
+        q: "¿Qué significa la corresponsabilidad entre familia y escuela?",
+        a: [
+          "Que cada parte actúe por separado.",
+          "Que familia y escuela compartan compromisos y colaboren por el bienestar de la niñez.",
+          "Que la escuela tome todas las decisiones sin consultar.",
+          "Que la familia participe solo en celebraciones."
+        ],
+        c: 1,
+        why: "La corresponsabilidad implica compartir acciones y compromisos para garantizar el cuidado, la educación y los derechos de niñas y niños."
+      },
+      {
+        tag: "Inclusión y desarrollo integral",
+        q: "¿Cuál es un beneficio de una alianza sólida entre familia y escuela?",
+        a: [
+          "Reducir la comunicación entre los adultos.",
+          "Hacer que todos los hogares tengan las mismas dinámicas.",
+          "Crear entornos protectores, inclusivos y enriquecedores que favorezcan el aprendizaje y el desarrollo integral.",
+          "Trasladar todas las responsabilidades a una sola parte."
+        ],
+        c: 2,
+        why: "El trabajo colaborativo reconoce la diversidad y fortalece los entornos donde crecen los niños, generando mejores condiciones para su bienestar, aprendizaje y protección."
+      }
+    ];
+
+    let index = 0;
+    let score = 0;
+    let answered = false;
+
+    const $ = (id: string) => document.getElementById(id)!;
+
+    function startGame() {
+      $('intro').hidden = true;
+      $('result').hidden = true;
+      $('game').hidden = false;
+      index = 0;
+      score = 0;
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const q = questions[index];
+      answered = false;
+
+      ($('progressText') as HTMLElement).textContent = `Pregunta ${index + 1} de ${questions.length}`;
+      ($('scoreText') as HTMLElement).textContent = `⭐ ${score} puntos`;
+      ($('progressBar') as HTMLElement).style.width = `${(index / questions.length) * 100}%`;
+      ($('qNumber') as HTMLElement).textContent = String(index + 1);
+      ($('qTag') as HTMLElement).textContent = q.tag;
+      ($('questionText') as HTMLElement).textContent = q.q;
+
+      const optionsEl = $('options');
+      optionsEl.innerHTML = '';
+
+      const feedbackEl = $('feedback');
+      feedbackEl.className = 'feedback';
+      feedbackEl.textContent = '';
+
+      const nextBtn = $('nextBtn') as HTMLButtonElement;
+      nextBtn.hidden = true;
+
+      ($('hint') as HTMLElement).textContent = 'Selecciona la respuesta que consideres correcta.';
+
+      q.a.forEach((answer, i) => {
+        const b = document.createElement('button');
+        b.className = 'option';
+        b.innerHTML = `<span class="letter">${'ABCD'[i]}</span><span></span>`;
+        (b.querySelector('span:last-child') as HTMLElement).textContent = answer;
+        b.onclick = () => chooseAnswer(i);
+        optionsEl.appendChild(b);
+      });
+    }
+
+    function chooseAnswer(choice: number) {
+      if (answered) return;
+      answered = true;
+
+      const q = questions[index];
+      const buttons = [...$('options').children] as HTMLButtonElement[];
+
+      buttons.forEach((b, i) => {
+        b.disabled = true;
+        if (i === q.c) b.classList.add('correct');
+        if (i === choice && i !== q.c) b.classList.add('wrong');
+      });
+
+      const good = choice === q.c;
+      if (good) score++;
+
+      const feedbackEl = $('feedback');
+      feedbackEl.className = `feedback show ${good ? 'good' : 'bad'}`;
+      feedbackEl.innerHTML = `<b>${good ? '¡Muy bien! ✓' : '¡Sigue aprendiendo!'}</b><br>${q.why}`;
+
+      ($('scoreText') as HTMLElement).textContent = `⭐ ${score} puntos`;
+      ($('progressBar') as HTMLElement).style.width = `${((index + 1) / questions.length) * 100}%`;
+      ($('hint') as HTMLElement).textContent = good ? '¡Respuesta correcta!' : 'La respuesta correcta está resaltada.';
+
+      const nextBtn = $('nextBtn') as HTMLButtonElement;
+      nextBtn.hidden = false;
+      nextBtn.textContent = index === questions.length - 1 ? 'Ver mi resultado →' : 'Siguiente reto →';
+    }
+
+    function nextQuestion() {
+      if (!answered) return;
+      if (index < questions.length - 1) {
+        index++;
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      $('game').hidden = true;
+      $('result').hidden = false;
+
+      const pct = Math.round((score / questions.length) * 100);
+      ($('finalScore') as HTMLElement).textContent = `${score}/${questions.length}`;
+      ($('correctCount') as HTMLElement).textContent = String(score);
+      ($('wrongCount') as HTMLElement).textContent = String(questions.length - score);
+      ($('percentage') as HTMLElement).textContent = `${pct}%`;
+
+      if (score >= questions.length * 0.9) {
+        ($('resultEmoji') as HTMLElement).textContent = '🏆🌳';
+        ($('resultTitle') as HTMLElement).textContent = '¡Eres un gran aliado!';
+        ($('resultMessage') as HTMLElement).textContent = 'Reconoces muy bien cómo el trabajo conjunto fortalece el desarrollo integral de la primera infancia.';
+      } else if (score >= questions.length * 0.6) {
+        ($('resultEmoji') as HTMLElement).textContent = '🌳✨';
+        ($('resultTitle') as HTMLElement).textContent = '¡Vas por buen camino!';
+        ($('resultMessage') as HTMLElement).textContent = 'Tienes buenas bases. Revisa las explicaciones y sigue fortaleciendo tus conocimientos sobre la alianza familia-escuela.';
+      } else {
+        ($('resultEmoji') as HTMLElement).textContent = '🌱💚';
+        ($('resultTitle') as HTMLElement).textContent = '¡Cada aprendizaje cuenta!';
+        ($('resultMessage') as HTMLElement).textContent = 'Esta aventura es una oportunidad para aprender. Vuelve a jugar y descubre nuevas formas de trabajar en equipo por la niñez.';
+      }
+    }
+
+    function restartGame() {
+      $('result').hidden = true;
+      $('intro').hidden = false;
+      ($('progressBar') as HTMLElement).style.width = '0%';
+    }
+
+    // Conectar botones
+    $('startBtn').addEventListener('click', startGame);
+    $('nextBtn').addEventListener('click', nextQuestion);
+    $('restartBtn').addEventListener('click', restartGame);
+  </script>
+</BaseLayout>
