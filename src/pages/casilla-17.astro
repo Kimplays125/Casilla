@@ -1,0 +1,385 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Operación Puente | Casilla 17">
+  <Fragment slot="head">
+    <style>
+      :root{--navy:#14263d;--blue:#234b67;--teal:#2e8c83;--lime:#c5df86;--sun:#f4c76b;--paper:#f5f1e7;--ink:#203044;--muted:#667487;--white:#fff;--red:#d87969}
+      *{box-sizing:border-box}body{margin:0;background:#e8e4d8;color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif}
+      button{font:inherit;cursor:pointer}.shell{max-width:1080px;margin:auto;padding:16px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--navy);font-weight:900;font-size:.9rem;padding:6px 2px 14px}.topbar span:last-child{background:#fff;padding:8px 12px;border-radius:30px}
+      .screen{background:var(--paper);border:3px solid var(--navy);border-radius:25px;overflow:hidden;box-shadow:8px 8px 0 #14263d22;min-height:610px;position:relative}
+      .hero{background:linear-gradient(125deg,#14263d 0%,#234b67 58%,#2e8c83 100%);color:white;padding:clamp(25px,6vw,65px);min-height:610px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+      .hero:before,.hero:after{content:"";position:absolute;border:1px solid #ffffff20;border-radius:50%;width:420px;height:420px;right:-120px;top:-170px}.hero:after{width:280px;height:280px;right:40px;top:-90px}
+      .kicker{letter-spacing:.18em;text-transform:uppercase;font-size:.75rem;color:var(--lime);font-weight:900}.hero h1{font-size:clamp(2.7rem,7vw,5.5rem);line-height:.96;max-width:700px;margin:17px 0}.hero h1 em{font-style:normal;color:var(--sun)}.hero p{max-width:650px;color:#e0e9ee;font-size:1.1rem;line-height:1.65}.heroart{font-size:clamp(4rem,10vw,7rem);position:absolute;right:7%;bottom:12%;filter:drop-shadow(0 10px 0 #0002)}
+      .btn{border:0;border-radius:13px;padding:13px 20px;background:var(--sun);color:var(--navy);font-weight:900;box-shadow:0 4px 0 #b68a39;transition:.15s}.btn:hover{transform:translateY(-2px);filter:brightness(1.04)}.btn.secondary{background:#e2ebe5;box-shadow:0 4px 0 #b9c9bd}.btn.dark{background:var(--navy);color:white;box-shadow:0 4px 0 #091727}.hero .btn{align-self:flex-start;margin-top:18px}
+      .gamehead{background:var(--navy);color:white;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.gamehead b{letter-spacing:.06em}.stats{display:flex;gap:8px;flex-wrap:wrap}.stat{background:#ffffff18;padding:7px 11px;border-radius:30px;font-size:.82rem}.meter{height:7px;background:#d8dfd9}.meter div{height:100%;width:0;background:var(--teal);transition:.3s}
+      .content{padding:clamp(17px,4vw,35px)}.eyebrow{font-size:.75rem;color:var(--teal);font-weight:900;letter-spacing:.14em;text-transform:uppercase}.content h2{font-size:clamp(1.7rem,4vw,2.5rem);color:var(--navy);margin:8px 0}.introtext{line-height:1.65;color:var(--muted);max-width:750px}
+      .mapgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:25px 0}.place{border:2px solid #d7d7c9;border-radius:18px;background:#fff;padding:18px;text-align:left;position:relative;min-height:145px;color:var(--ink);transition:.15s}.place:hover{border-color:var(--teal);transform:translateY(-2px)}.place.locked{opacity:.42;cursor:not-allowed;background:#e8e6dd}.place.done{border-color:var(--teal);background:#eaf3e9}.place .emoji{font-size:2rem}.place b{display:block;margin:7px 0 4px;color:var(--navy);font-size:1.1rem}.place small{color:var(--muted);line-height:1.4}.place .state{position:absolute;right:12px;top:12px;font-size:.75rem;font-weight:900;color:var(--teal)}
+      .scene{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:start}.illustration{min-height:310px;border-radius:20px;background:linear-gradient(145deg,#d7e8dd,#f4dba5);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.illustration .big{font-size:clamp(6rem,15vw,10rem);filter:drop-shadow(0 10px 0 #20304418)}.illustration .bubble{position:absolute;background:#fff;border-radius:15px;padding:10px 13px;box-shadow:0 5px 15px #20304418;font-size:.85rem;font-weight:800;max-width:160px}.bubble.one{top:15px;left:14px}.bubble.two{right:12px;bottom:18px}
+      .dialog{background:#fff;border:2px solid #e2dfd4;border-radius:18px;padding:20px}.dialog h3{color:var(--navy);margin:0 0 9px;font-size:1.35rem}.dialog p{color:var(--muted);line-height:1.6}.task{background:#f0f2e9;border-left:5px solid var(--teal);border-radius:8px;padding:13px;margin:15px 0;line-height:1.5}.choices{display:grid;gap:9px;margin-top:14px}.choice{border:2px solid #dfe4dc;background:#fff;border-radius:12px;text-align:left;padding:12px 14px;color:var(--ink);font-weight:700}.choice:hover{border-color:var(--teal);background:#f3faf5}.choice.selected{border-color:var(--teal);background:#e3f2e9}.choice:disabled{cursor:default}.feedback{display:none;border-radius:12px;padding:13px;margin-top:13px;line-height:1.5}.feedback.show{display:block}.feedback.ok{background:#e0f1e5;color:#205c40}.feedback.no{background:#fae8e1;color:#8c4438}
+      .inventory{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 20px}.item{background:#fff;border:1px dashed #b4c7b8;border-radius:30px;padding:7px 11px;font-size:.82rem;font-weight:800;color:var(--navy)}
+      .actionrow{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}.actionrow .btn{flex:0 0 auto}
+      .sequence{display:grid;gap:8px;margin:14px 0}.seqitem{display:flex;align-items:center;gap:12px;padding:12px;background:white;border:2px solid #dfe4dc;border-radius:12px}.seqitem select{margin-left:auto;max-width:150px;padding:8px;border:1px solid #cbd7cc;border-radius:8px;background:#f9fbf8}
+      .end{text-align:center;padding:clamp(25px,6vw,60px)}.end .bigend{font-size:5rem}.end h2{font-size:clamp(2rem,5vw,3rem);color:var(--navy)}.seal{display:inline-block;background:var(--lime);padding:9px 15px;border-radius:30px;font-weight:900;color:var(--navy)}
+      .facilitator{background:#fff;border-radius:18px;padding:22px;margin:20px 0;text-align:left;line-height:1.7}.facilitator h3{color:var(--teal)}.facilitator li{margin:8px 0}
+      .hidden{display:none!important}.tiny{font-size:.82rem;color:var(--muted)}footer{text-align:center;color:#68766f;font-size:.8rem;padding:14px}
+      @media(max-width:700px){.scene{grid-template-columns:1fr}.illustration{min-height:220px}.heroart{opacity:.28;right:4%;bottom:7%}.mapgrid{grid-template-columns:1fr}.screen{min-height:0}.hero{min-height:570px}.codebox input{width:48px;height:54px}}
+    </style>
+  </Fragment>
+
+  <div class="shell">
+    <div class="topbar">
+      <span>🧭 EXPERIENCIA INTERACTIVA · CASILLA 17</span>
+      <span>OPERACIÓN PUENTE</span>
+    </div>
+
+    <main class="screen">
+
+      <!-- Pantalla de bienvenida -->
+      <section id="welcome" class="hero">
+        <div class="kicker">Expediente 017 · Misión cooperativa</div>
+        <h1>OPERACIÓN<br><em>PUENTE</em></h1>
+        <p>La comunidad de Villa Esperanza está dividida. En la escuela hay conflictos, las familias sienten que no son escuchadas y la convivencia se está debilitando. Tu equipo ha sido convocado para reconstruir el puente que une a la familia y la escuela.</p>
+        <p><b>Explora cuatro lugares, conversa con sus personajes, encuentra pistas y resuelve el desafío final.</b></p>
+        <button class="btn" id="beginBtn">Entrar a la misión ↗</button>
+        <div class="heroart">🏫🌳🏡</div>
+      </section>
+
+      <!-- Pantalla de juego -->
+      <section id="game" class="hidden">
+        <header class="gamehead">
+          <b>🕊️ OPERACIÓN PUENTE</b>
+          <div class="stats">
+            <span class="stat" id="progressStat">Lugares: 0/4</span>
+            <span class="stat" id="clueStat">Pistas: 0</span>
+          </div>
+        </header>
+        <div class="meter"><div id="meterFill"></div></div>
+
+        <!-- Vista mapa -->
+        <div class="content" id="mapView">
+          <div class="eyebrow">Tablero de exploración</div>
+          <h2>Villa Esperanza necesita tu ayuda</h2>
+          <p class="introtext">Elige un lugar para investigar. En cada escenario encontrarás un reto. Lee las pistas y decide cómo actuar. Puedes regresar al mapa cuando termines cada misión.</p>
+          <div class="inventory" id="inventory">
+            <span class="tiny">🎒 Tu mochila está vacía. Las pistas que encuentres aparecerán aquí.</span>
+          </div>
+          <div class="mapgrid" id="places"></div>
+          <div class="task"><b>Tu objetivo:</b> reunir las cuatro claves para activar el puente de la paz. No se trata de ganar una discusión, sino de encontrar formas de trabajar juntos.</div>
+        </div>
+
+        <!-- Vista escena -->
+        <div class="content hidden" id="sceneView">
+          <div class="eyebrow" id="sceneLabel">Lugar de la misión</div>
+          <h2 id="sceneTitle"></h2>
+          <div class="scene">
+            <div class="illustration" id="sceneArt"></div>
+            <div class="dialog">
+              <h3 id="character"></h3>
+              <p id="story"></p>
+              <div class="task" id="challenge"></div>
+              <div class="choices" id="choices"></div>
+              <div class="feedback" id="feedback" aria-live="polite"></div>
+            </div>
+          </div>
+          <div class="actionrow">
+            <button class="btn secondary" id="backBtn">← Volver al mapa</button>
+            <button class="btn hidden" id="completeBtn">Guardar pista y continuar →</button>
+          </div>
+        </div>
+
+        <!-- Vista desafío final -->
+        <div class="content hidden" id="finalView">
+          <div class="eyebrow">Desafío final · Sala de acuerdos</div>
+          <h2>Activa el puente de la paz</h2>
+          <p class="introtext">Has reunido las cuatro pistas. Ahora debes ordenar las acciones que permiten construir una alianza entre familia y escuela.</p>
+          <div class="illustration" style="min-height:180px;margin:18px 0"><div class="big">🌉🔐</div></div>
+          <div class="dialog">
+            <h3>Desbloquea la secuencia</h3>
+            <p>Asigna el orden adecuado a cada acción. Piensa qué debe ocurrir primero para que las demás puedan funcionar.</p>
+            <div class="sequence">
+              <div class="seqitem">👂 Escuchar las necesidades
+                <select id="s1"><option value="">Orden…</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+              </div>
+              <div class="seqitem">💬 Dialogar con respeto
+                <select id="s2"><option value="">Orden…</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+              </div>
+              <div class="seqitem">🤝 Construir acuerdos
+                <select id="s3"><option value="">Orden…</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+              </div>
+              <div class="seqitem">🌱 Cumplir y revisar compromisos
+                <select id="s4"><option value="">Orden…</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+              </div>
+            </div>
+            <button class="btn" id="checkBtn">Comprobar secuencia</button>
+            <div class="feedback" id="finalFeedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pantalla final -->
+      <section id="ending" class="end hidden">
+        <div class="bigend">🌉✨🕊️</div>
+        <span class="seal">MISIÓN COMPLETADA</span>
+        <h2>¡Villa Esperanza vuelve a conectarse!</h2>
+        <p class="introtext" style="margin:12px auto">Descubriste que la paz se construye cuando familia y escuela se escuchan, dialogan, reconocen sus diferencias y comparten responsabilidades.</p>
+        <div class="facilitator">
+          <h3>🎤 Momento del dinamizador: conversemos</h3>
+          <p><b>Conceptualización breve:</b> La familia y la escuela son espacios fundamentales en la formación de niñas, niños y adolescentes. En la familia se construyen vínculos afectivos y se aprenden las primeras formas de relacionarse. La escuela fortalece estos aprendizajes mediante la convivencia, la participación y el reconocimiento de las diferencias.</p>
+          <p>Cuando ambas trabajan de manera articulada, pueden prevenir situaciones de violencia, acompañar la resolución pacífica de conflictos y promover ambientes seguros e inclusivos. Construir paz no significa evitar todos los conflictos, sino aprender a resolverlos mediante la escucha, el diálogo, los acuerdos y el respeto mutuo.</p>
+          <h3>Preguntas para el grupo</h3>
+          <ol>
+            <li>¿Qué pista o situación les hizo cambiar su manera de pensar?</li>
+            <li>¿Por qué la familia y la escuela se necesitan para construir paz?</li>
+            <li>¿Qué puede pasar cuando no escuchamos a la otra persona?</li>
+            <li>¿Qué acuerdo concreto podríamos poner en práctica desde hoy?</li>
+          </ol>
+          <h3>🌱 Tu compromiso con la paz</h3>
+          <p>Completa esta frase y compártela con el grupo:</p>
+          <textarea id="pledge" rows="3" style="width:100%;border:2px solid #d9e4dc;border-radius:12px;padding:12px;font:inherit" placeholder="Me comprometo a construir paz cuando..."></textarea>
+          <p id="pledgeMsg" class="tiny"></p>
+          <button class="btn secondary" id="pledgeBtn">Guardar compromiso</button>
+        </div>
+        <p><b>Mensaje de cierre:</b> La paz comienza en casa, crece en la escuela y se construye entre todos.</p>
+        <p class="tiny">Referentes: Ley 1620 de 2013 · Decreto 459 de 2024 · Recursos de Colombia Aprende.</p>
+        <button class="btn dark" id="replayBtn">↻ Volver a jugar</button>
+      </section>
+
+    </main>
+
+    <footer>Recurso educativo · Familia y escuela como entidades fundamentales en la construcción de paz.</footer>
+  </div>
+
+  <script>
+    const missions = [
+      {
+        id: "home", name: "El hogar de Emma", sub: "La escucha comienza en casa",
+        emoji: "🏡", art: "🏠", bubble: "«Quiero que me escuchen»",
+        person: "Emma y su papá",
+        story: "Emma llega triste porque tuvo un desacuerdo con una compañera. Su papá está ocupado y piensa decirle que no es importante. Emma necesita sentirse escuchada.",
+        challenge: "Si fueras el papá, ¿qué harías para ayudar a Emma y fortalecer la confianza?",
+        answers: [
+          "Dejar lo que estoy haciendo por un momento, escucharla sin juzgar y preguntarle cómo se siente.",
+          "Decirle que no exagere y que mañana se le pasará.",
+          "Llamar inmediatamente a la otra familia para reclamar."
+        ],
+        correct: 0,
+        explain: "La escucha activa permite reconocer emociones, comprender lo ocurrido y acompañar sin juzgar. La familia es un primer espacio para aprender a dialogar.",
+        clue: "ESCUCHA"
+      },
+      {
+        id: "school", name: "El patio escolar", sub: "Los conflictos pueden transformarse",
+        emoji: "🏫", art: "⚽", bubble: "«Los dos queremos jugar»",
+        person: "La docente y dos estudiantes",
+        story: "Durante el recreo, dos estudiantes discuten porque ambos quieren usar el mismo balón. Empiezan a levantar la voz y otros compañeros se reúnen alrededor.",
+        challenge: "¿Qué intervención ayuda a transformar el conflicto en una oportunidad de aprendizaje?",
+        answers: [
+          "Castigar a ambos sin escuchar lo que ocurrió.",
+          "Separarlos y prohibirles jugar juntos durante toda la semana.",
+          "Darles la palabra por turnos, ayudarles a reconocer lo que necesitan y acompañarlos a proponer un acuerdo."
+        ],
+        correct: 2,
+        explain: "La mediación ayuda a expresar emociones, escuchar distintas versiones y construir acuerdos. Un conflicto puede convertirse en una oportunidad para aprender convivencia.",
+        clue: "DIÁLOGO"
+      },
+      {
+        id: "meeting", name: "La reunión de familias", sub: "Todas las voces cuentan",
+        emoji: "🗣️", art: "👨‍👩‍👧‍👦", bubble: "«Nuestra opinión también importa»",
+        person: "Familias y equipo docente",
+        story: "La institución prepara una estrategia de convivencia, pero algunas familias sienten que solo reciben instrucciones y que sus experiencias no son tenidas en cuenta.",
+        challenge: "¿Qué decisión crea una verdadera alianza entre familia y escuela?",
+        answers: [
+          "Invitar a las familias a compartir sus perspectivas y diseñar conjuntamente acciones posibles.",
+          "Enviar un documento terminado para que las familias lo firmen.",
+          "Dejar que cada parte trabaje por separado para evitar diferencias."
+        ],
+        correct: 0,
+        explain: "La participación genuina y la corresponsabilidad permiten compartir decisiones y compromisos. La alianza no consiste solo en informar, sino en construir juntos.",
+        clue: "PARTICIPACIÓN"
+      },
+      {
+        id: "garden", name: "El jardín de la diversidad", sub: "La diferencia nos enriquece",
+        emoji: "🌈", art: "🌻", bubble: "«Aquí todos pertenecemos»",
+        person: "Samuel y su grupo",
+        story: "Samuel es nuevo en la escuela. Tiene costumbres familiares distintas y todavía no se siente parte del grupo. Algunos compañeros hacen comentarios sobre sus diferencias.",
+        challenge: "¿Qué acción contribuye a un entorno seguro, respetuoso e inclusivo?",
+        answers: [
+          "Pedirle a Samuel que cambie para parecerse a los demás.",
+          "Promover una actividad donde todos compartan sus historias, reconozcan sus diferencias y acuerden cómo tratarse con respeto.",
+          "Ignorar los comentarios para no generar problemas."
+        ],
+        correct: 1,
+        explain: "La inclusión implica reconocer la dignidad de cada persona, rechazar la discriminación y crear condiciones para que todos participen y se sientan parte de la comunidad.",
+        clue: "RESPETO"
+      }
+    ];
+
+    let done = new Set<string>();
+    let clues: string[] = [];
+    let current: typeof missions[0] | null = null;
+    let solved = false;
+
+    const $ = (id: string) => document.getElementById(id)!;
+
+    function begin() {
+      $('welcome').classList.add('hidden');
+      $('game').classList.remove('hidden');
+      drawMap();
+    }
+
+    function drawMap() {
+      $('mapView').classList.remove('hidden');
+      $('sceneView').classList.add('hidden');
+      $('finalView').classList.add('hidden');
+
+      const host = $('places');
+      host.innerHTML = '';
+
+      missions.forEach(m => {
+        const b = document.createElement('button');
+        b.className = 'place' + (done.has(m.id) ? ' done' : '');
+        b.innerHTML = `<span class="emoji">${m.emoji}</span><span class="state">${done.has(m.id) ? '✓ INVESTIGADO' : 'EXPLORAR ↗'}</span><b>${m.name}</b><small>${m.sub}</small>`;
+        b.onclick = () => openMission(m);
+        host.appendChild(b);
+      });
+
+      ($('progressStat') as HTMLElement).textContent = `Lugares: ${done.size}/4`;
+      ($('clueStat') as HTMLElement).textContent = `Pistas: ${clues.length}`;
+      ($('meterFill') as HTMLElement).style.width = `${done.size / 5 * 100}%`;
+
+      $('inventory').innerHTML = clues.length
+        ? clues.map(c => `<span class="item">🔎 ${c}</span>`).join('')
+        : '<span class="tiny">🎒 Tu mochila está vacía. Explora los lugares para encontrar pistas.</span>';
+
+      if (done.size === 4) {
+        const f = document.createElement('button');
+        f.className = 'place';
+        f.style.background = '#e6efd1';
+        f.innerHTML = '<span class="emoji">🌉</span><b>El puente central</b><small>Las cuatro pistas están listas. Entra al desafío final.</small>';
+        f.onclick = finalChallenge;
+        host.appendChild(f);
+      }
+    }
+
+    function openMission(m: typeof missions[0]) {
+      current = m;
+      solved = done.has(m.id);
+
+      $('mapView').classList.add('hidden');
+      $('sceneView').classList.remove('hidden');
+      ($('sceneLabel') as HTMLElement).textContent = 'Escenario · ' + m.sub;
+      ($('sceneTitle') as HTMLElement).textContent = m.name;
+      $('sceneArt').innerHTML = `<div class="bubble one">${m.bubble}</div><div class="big">${m.art}</div><div class="bubble two">Pista por descubrir 🔎</div>`;
+      ($('character') as HTMLElement).textContent = m.person;
+      ($('story') as HTMLElement).textContent = m.story;
+      ($('challenge') as HTMLElement).textContent = m.challenge;
+
+      const fb = $('feedback');
+      fb.className = 'feedback';
+      fb.textContent = '';
+
+      const ch = $('choices');
+      ch.innerHTML = '';
+      m.answers.forEach((a, i) => {
+        const b = document.createElement('button');
+        b.className = 'choice';
+        b.textContent = String.fromCharCode(65 + i) + '. ' + a;
+        b.disabled = solved;
+        b.onclick = () => answer(i, b);
+        ch.appendChild(b);
+      });
+
+      ($('completeBtn') as HTMLButtonElement).classList.toggle('hidden', !solved);
+
+      if (solved) {
+        fb.className = 'feedback show ok';
+        fb.textContent = 'Pista obtenida: ' + m.clue + '. ' + m.explain;
+      }
+    }
+
+    function answer(i: number, btn: HTMLButtonElement) {
+      if (!current) return;
+      const fb = $('feedback');
+      const all = [...document.querySelectorAll('.choice')] as HTMLButtonElement[];
+      all.forEach(b => (b as HTMLButtonElement).disabled = true);
+
+      if (i === current.correct) {
+        btn.classList.add('selected');
+        solved = true;
+        fb.className = 'feedback show ok';
+        fb.innerHTML = '<b>¡Pista descubierta!</b><br>' + current.explain;
+        ($('completeBtn') as HTMLButtonElement).classList.remove('hidden');
+      } else {
+        (btn as HTMLElement).style.borderColor = '#d87969';
+        fb.className = 'feedback show no';
+        fb.innerHTML = '<b>Revisa la situación.</b><br>Piensa qué opción escucha a las personas, respeta sus necesidades y ayuda a construir una solución. Puedes volver a intentarlo.';
+        const retry = document.createElement('button');
+        retry.className = 'btn secondary';
+        retry.style.marginTop = '10px';
+        retry.textContent = 'Intentar otra vez';
+        retry.onclick = () => {
+          all.forEach(b => { (b as HTMLButtonElement).disabled = false; b.classList.remove('selected'); (b as HTMLElement).style.borderColor = ''; });
+          fb.className = 'feedback';
+          fb.textContent = '';
+        };
+        fb.appendChild(retry);
+      }
+    }
+
+    function completePlace() {
+      if (current && !done.has(current.id)) {
+        done.add(current.id);
+        clues.push(current.clue);
+      }
+      drawMap();
+    }
+
+    function finalChallenge() {
+      $('mapView').classList.add('hidden');
+      $('sceneView').classList.add('hidden');
+      $('finalView').classList.remove('hidden');
+    }
+
+    function checkSequence() {
+      const vals = ['s1', 's2', 's3', 's4'].map(id => ($( id) as HTMLSelectElement).value);
+      const fb = $('finalFeedback');
+      if (vals.some(v => !v)) {
+        fb.className = 'feedback show no';
+        fb.textContent = 'Completa los cuatro pasos para activar el puente.';
+        return;
+      }
+      if (new Set(vals).size !== 4) {
+        fb.className = 'feedback show no';
+        fb.textContent = 'Cada paso debe tener un número diferente. ¡Inténtalo de nuevo!';
+        return;
+      }
+      if (vals.join(',') === '1,2,3,4') {
+        fb.className = 'feedback show ok';
+        fb.innerHTML = '<b>¡Secuencia correcta! El puente está abierto.</b><br>Primero escuchamos para comprender; luego dialogamos para intercambiar perspectivas; después construimos acuerdos y, finalmente, cumplimos y revisamos los compromisos.';
+        setTimeout(() => {
+          $('game').classList.add('hidden');
+          $('ending').classList.remove('hidden');
+        }, 1500);
+      } else {
+        fb.className = 'feedback show no';
+        fb.textContent = 'Todavía no. Piensa: ¿podemos construir acuerdos antes de escuchar y dialogar? Reorganiza los pasos.';
+      }
+    }
+
+    function savePledge() {
+      const v = ($('pledge') as HTMLTextAreaElement).value.trim();
+      ($('pledgeMsg') as HTMLElement).textContent = v
+        ? '✓ Tu compromiso está listo para compartirlo con el grupo.'
+        : 'Escribe primero una acción concreta que puedas practicar.';
+    }
+
+    // Conectar botones
+    $('beginBtn').addEventListener('click', begin);
+    $('backBtn').addEventListener('click', () => drawMap());
+    $('completeBtn').addEventListener('click', completePlace);
+    $('checkBtn').addEventListener('click', checkSequence);
+    $('pledgeBtn').addEventListener('click', savePledge);
+    $('replayBtn').addEventListener('click', () => location.reload());
+  </script>
+</BaseLayout>
